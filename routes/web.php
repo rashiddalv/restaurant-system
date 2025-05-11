@@ -1,18 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/auth/reset-password/{token}', function ($token) {
+    return redirect('http://localhost:5173/auth/reset-password/' . $token);
+})->name('password.reset');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/api/auth/reset-password', [ResetPasswordController::class, 'resetPassword'])->name('password.update');

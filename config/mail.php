@@ -65,6 +65,11 @@ return [
             // ],
         ],
 
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'rashiddvalorant@gmail.com'),
+            'name' => env('MAIL_FROM_NAME', config('${APP_NAME}')),
+        ],
+
         'sendmail' => [
             'transport' => 'sendmail',
             'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
