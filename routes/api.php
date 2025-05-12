@@ -22,7 +22,7 @@ use Laravel\Socialite\Facades\Socialite;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| routes are loaded by the RouteServiceProvider, and all of them will
 | be assigned to the "api" middleware group. Make something great!
 |
 */
@@ -35,11 +35,10 @@ Route::get('/auth/google/redirect', [GoogleAuthController::class, 'redirect']);
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-
     Route::post('/logout', [AuthController::class, 'logout']);
 
     // Admin and Manager

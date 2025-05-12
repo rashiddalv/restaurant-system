@@ -34,7 +34,7 @@ class GoogleAuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'message' => 'User registered successfully',
+            'message' => 'Success!',
             'user' => $user,
             'token' => $token,
         ], 201);
